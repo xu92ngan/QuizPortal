@@ -1,0 +1,9 @@
+.card {
+    box-shadow: 0 0 1px gray;
+}
+
+.divider {
+    border-bottom: 1px solid gray;
+    margin-top: 10px;
+}
+
