@@ -1,8 +1,20 @@
-import { Form } from 'antd';
+import { Form, message } from 'antd';
 import { Link } from 'react-router-dom';
+import { registerUser } from '../../../api/users';
 
 const Register = () => {
-  const onFinish = () => {};
+  const onFinish = async (values) => {
+    try {
+      const response = await registerUser(values);
+      if (response.success) {
+        message.success(response.message);
+      } else {
+        message.error(response.message);
+      }
+    } catch (error) {
+      message.error(error.message);
+    }
+  };
 
   return (
     <div className='flex justify-center items-center h-screen w-screen'>
