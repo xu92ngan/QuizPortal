@@ -10,12 +10,7 @@ app.use(express.json());
 
 const userRoute = require('./routes/userRoutes');
 
-app.use('api/users', userRoute);
-app.get('/user', (req, res) => {
-  return {
-    message: 'HELL',
-  };
-});
+app.use('/api/users', userRoute);
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
