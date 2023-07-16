@@ -36,3 +36,12 @@
    color: var(--primary) !important;
    text-decoration: underline !important;
  }
+
+ i {
+   font-size: 18px !important;
+   cursor: pointer;
+ }
+
+ .underline {
+   text-decoration: underline !important;
+ }

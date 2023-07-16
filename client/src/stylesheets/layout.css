@@ -12,6 +12,25 @@
     background-color: var(--primary);
     padding: 15px;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    transition: all 0.2 ease-in-out;
+    gap: 15px;
+    color: white !important;
+}
+
+.active-menu-item {
+    border: 2px solid white;
+    border-radius: 5px;
 }
 
 .header {
@@ -19,4 +38,5 @@
     padding: 10px;
     border-radius: 5px;
     color: white !important;
+    align-items: center;
 }
