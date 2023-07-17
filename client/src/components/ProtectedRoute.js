@@ -13,6 +13,10 @@ const ProtectedRoute = ({ children }) => {
   const activeRoute = window.location.pathname;
   const [collapsed, setCollapsed] = useState(false);
 
+  const getIsActive = (paths) => {
+    return paths.includes(activeRoute);
+  };
+
   const getUserData = async () => {
     try {
       const response = await getUserInfo();
@@ -38,49 +42,49 @@ const ProtectedRoute = ({ children }) => {
   }, []);
 
   return (
-    <div className="layout">
-      <div className="flex gap-2 h-100">
-        <div className="sidebar">
-          <div className="menu">
+    <div className='layout'>
+      <div className='flex gap-2 h-100'>
+        <div className='sidebar'>
+          <div className='menu'>
             {menu.map((item, index) => {
               return (
                 <div
                   className={`menu-item ${
-                    activeRoute === item.paths[0] && 'active-menu-item'
+                    getIsActive(item.paths) && 'active-menu-item'
                   }`}
                   key={index}
                   onClick={item.onClick}
                 >
                   {item.icon}{' '}
                   {!collapsed && (
-                    <span className="text-white">{item.title}</span>
+                    <span className='text-white'>{item.title}</span>
                   )}
                 </div>
               );
             })}
           </div>
         </div>
-        <div className="body">
-          <div className="header flex justify-between">
+        <div className='body'>
+          <div className='header flex justify-between'>
             {!collapsed && (
               <i
-                className="ri-close-line"
+                className='ri-close-line'
                 onClick={() => setCollapsed(true)}
               ></i>
             )}
             {collapsed && (
               <i
-                className="ri-menu-line"
+                className='ri-menu-line'
                 onClick={() => setCollapsed(false)}
               ></i>
             )}
-            <h1 className="text-2xl text-white">QUIZ PORTAL</h1>
-            <div className="flex gap-1 items-center">
-              <i className="ri-user-line"></i>
-              <h1 className="text-md text-white underline">{user?.name}</h1>
+            <h1 className='text-2xl text-white'>QUIZ PORTAL</h1>
+            <div className='flex gap-1 items-center'>
+              <i className='ri-user-line'></i>
+              <h1 className='text-md text-white underline'>{user?.name}</h1>
             </div>
           </div>
-          <div className="content">{children}</div>
+          <div className='content'>{children}</div>
         </div>
       </div>
     </div>

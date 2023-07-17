@@ -4,17 +4,18 @@ import { Exams } from './pages/admin/Exams';
 import Home from './pages/common/Home';
 import Login from './pages/common/Login';
 import Register from './pages/common/Register';
+import AddEditExam from './pages/admin/Exams/AddEditExam';
 
 function App() {
   return (
     <Routes>
       {/* Common Routes */}
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+      <Route path='/login' element={<Login />} />
+      <Route path='/register' element={<Register />} />
 
       {/* User Routes */}
       <Route
-        path="/"
+        path='/'
         element={
           <ProtectedRoute>
             <Home />
@@ -24,10 +25,26 @@ function App() {
 
       {/* Admin Routes */}
       <Route
-        path="/admin/exams"
+        path='/admin/exams'
         element={
           <ProtectedRoute>
             <Exams />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path='/admin/exams/add'
+        element={
+          <ProtectedRoute>
+            <AddEditExam />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path='/admin/exams/edit/:id'
+        element={
+          <ProtectedRoute>
+            <AddEditExam />
           </ProtectedRoute>
         }
       />
